@@ -5,12 +5,14 @@ import utilities.BSTreeADT;
 import java.util.*;
 
 /**
- * Binary Search Tree implementation based on BSTreeADT. Maintains a reference
- * to the root node and provides various operations on the tree.
- *
- * @param <E> the type of elements stored in the tree, must implement
- * Comparable.
- * @see BSTreeADT
+ * <p>
+ * The <code>BSTree</code> implementation is designed to be used as a basis for 
+ * the BST data structure that will be developed in the CPRG 304 class at
+ * SAIT. The implementation is from the BSTreeADT interface  and will be required 
+ * to add all the functionality, comparable and serializable.
+ * </p>
+ * 
+ * @param <E> The type of elements this list holds.
  */
 public class BSTree<E extends Comparable<? super E>> implements BSTreeADT<E> 
 {

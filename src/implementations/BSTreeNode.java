@@ -54,7 +54,7 @@ public class BSTreeNode<E>
      * 
      * @param data value or data to be set as data for this node
      */
-    public void setData(E data) 
+    public void setElement(E data) 
     {
         this.data = data;
     }
