@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -44,6 +45,21 @@ public class WordTracker implements Serializable{
 			WordStorage thing = itTest.next();
 			System.out.println(thing.displayType(fmt));
 		}
+		
+	}
+	public void writeToFile(String fileName, String fmt) {
+	    try {
+	        FileWriter myWriter = new FileWriter(fileName);
+			utilities.Iterator<WordStorage> itTest = wordTree.inorderIterator();
+			while(itTest.hasNext()) {
+				WordStorage thing = itTest.next();
+				myWriter.write(thing.displayType(fmt)+"\n");
+			}
+	        myWriter.close();
+	      } catch (IOException e) {
+	        System.out.println("An error occurred.");
+	        e.printStackTrace();
+	      }
 	}
 	public void serializeTree()
 	{
@@ -118,6 +134,9 @@ public class WordTracker implements Serializable{
 		newTracker.displayEntries("-pl");
 		System.out.println("===================");
 		newTracker.displayEntries("-po");
+		newTracker.writeToFile("test.txt", "-pf");
 		newTracker.serializeTree();
+		
+		System.out.println("cat.txt".substring(("cat.txt").length()-4, ("cat.txt").length()));
 	}
 }
